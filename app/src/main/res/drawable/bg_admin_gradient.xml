@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Admin header: deep charcoal-navy to dark maroon — authoritative, structured, professional -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="150"
+        android:startColor="#0F1923"
+        android:centerColor="#1C1025"
+        android:endColor="#3D0C01"
+        android:type="linear" />
+</shape>

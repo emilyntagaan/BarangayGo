@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_50">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Top bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:paddingStart="20dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_back"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_back_btn"
+                    android:gravity="center"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_back"
+                        android:contentDescription="Back" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_queue_ticket"
+                    android:textColor="@color/gray_800"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/nunito_extrabold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- TICKET CARD -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.BarangayGo.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="20dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Ticket Header (gradient changes with status) -->
+                        <RelativeLayout
+                            android:id="@+id/ticket_header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_header_gradient"
+                            android:padding="20dp"
+                            android:gravity="center">
+
+                            <View
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:background="@drawable/bg_circle_decoration"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginEnd="-40dp"
+                                android:layout_marginTop="-40dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/queue_number"
+                                    android:textColor="#99FFFFFF"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:textAllCaps="true"
+                                    android:letterSpacing="0.08"
+                                    android:fontFamily="@font/nunito_bold"
+                                    android:layout_marginBottom="6dp" />
+
+                                <TextView
+                                    android:id="@+id/tv_ticket_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="A-042"
+                                    android:textColor="@color/white"
+                                    android:textSize="52sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/nunito_extrabold"
+                                    android:letterSpacing="-0.02"
+                                    android:lineHeight="52sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_ticket_service"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Barangay Clearance"
+                                    android:textColor="#BFFFFFFF"
+                                    android:textSize="13sp"
+                                    android:layout_marginTop="6dp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <!-- Dashed divider row -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@drawable/divider_dashed"
+                                android:layout_centerVertical="true"
+                                android:layout_marginHorizontal="12dp" />
+
+                            <!-- Left notch -->
+                            <View
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:background="@drawable/bg_notch_circle"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="-12dp" />
+
+                            <!-- Right notch -->
+                            <View
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:background="@drawable/bg_notch_circle"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="-12dp" />
+                        </RelativeLayout>
+
+                        <!-- Ticket Body -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                            <!-- Status row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginBottom="14dp">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/status"
+                                    android:textColor="@color/gray_400"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:textAllCaps="true"
+                                    android:letterSpacing="0.05"
+                                    android:fontFamily="@font/nunito_bold" />
+                                <TextView
+                                    android:id="@+id/tv_status_badge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/status_waiting"
+                                    android:textColor="#92400E"
+                                    android:background="@drawable/bg_badge_waiting"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="5dp"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/nunito_bold" />
+                            </LinearLayout>
+
+                            <!-- Now Serving row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginBottom="14dp">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/now_serving"
+                                    android:textColor="@color/gray_400"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:textAllCaps="true"
+                                    android:letterSpacing="0.05"
+                                    android:fontFamily="@font/nunito_bold" />
+                                <TextView
+                                    android:id="@+id/tv_now_serving"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="A-039"
+                                    android:textColor="@color/gray_800"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/nunito_bold" />
+                            </LinearLayout>
+
+                            <!-- People ahead row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginBottom="14dp">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/ahead_of_you"
+                                    android:textColor="@color/gray_400"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:textAllCaps="true"
+                                    android:letterSpacing="0.05"
+                                    android:fontFamily="@font/nunito_bold" />
+                                <TextView
+                                    android:id="@+id/tv_ahead"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="3 people"
+                                    android:textColor="@color/gray_800"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/nunito_bold" />
+                            </LinearLayout>
+
+                            <!-- Wait time row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginBottom="14dp">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/est_wait_time"
+                                    android:textColor="@color/gray_400"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:textAllCaps="true"
+                                    android:letterSpacing="0.05"
+                                    android:fontFamily="@font/nunito_bold" />
+                                <TextView
+                                    android:id="@+id/tv_est_wait"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="~15 minutes"
+                                    android:textColor="@color/blue_600"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/nunito_bold" />
+                            </LinearLayout>
+
+                            <!-- Dashed separator -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@drawable/divider_dashed"
+                                android:layout_marginBottom="14dp" />
+
+                            <!-- Resident row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginBottom="8dp">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/resident"
+                                    android:textColor="@color/gray_400"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:textAllCaps="true"
+                                    android:letterSpacing="0.05"
+                                    android:fontFamily="@font/nunito_bold" />
+                                <TextView
+                                    android:id="@+id/tv_resident_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Juan dela Cruz"
+                                    android:textColor="@color/gray_800"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/nunito_bold" />
+                            </LinearLayout>
+
+                            <!-- Date row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/date"
+                                    android:textColor="@color/gray_400"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    android:textAllCaps="true"
+                                    android:letterSpacing="0.05"
+                                    android:fontFamily="@font/nunito_bold" />
+                                <TextView
+                                    android:id="@+id/tv_date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="June 3, 2025"
+                                    android:textColor="@color/gray_800"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/nunito_bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Queue Progress Card -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.BarangayGo.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/queue_progress"
+                            android:textColor="@color/gray_800"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/nunito_bold"
+                            android:layout_marginBottom="12dp" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_queue"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:max="100"
+                            android:progress="65"
+                            android:progressDrawable="@drawable/progress_queue"
+                            android:layout_marginBottom="8dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/tv_progress_start"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="A-001"
+                                android:textColor="@color/gray_400"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/nunito_bold" />
+                            <TextView
+                                android:id="@+id/tv_progress_current"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Now: —"
+                                android:textColor="@color/blue_600"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/nunito_bold" />
+                            <TextView
+                                android:id="@+id/tv_progress_end"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="—"
+                                android:textColor="@color/gray_400"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/nunito_bold"
+                                android:gravity="end" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Book Now prompt — visible only in empty state -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_book_now_prompt"
+                    style="@style/Widget.BarangayGo.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ready to book a queue?"
+                            android:textColor="@color/gray_600"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="12dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_go_book"
+                            style="@style/Widget.BarangayGo.Button.Primary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Book a Service"
+                            android:paddingHorizontal="24dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Notification toggle card -->
+                <androidx.cardview.widget.CardView
+                    style="@style/Widget.BarangayGo.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="14dp">
+
+                        <LinearLayout
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_announce_icon_info"
+                            android:gravity="center"
+                            android:layout_marginEnd="12dp">
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_bell_blue"
+                                android:contentDescription="Notification" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/notifications_active"
+                                android:textColor="@color/gray_800"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/nunito_bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/notif_desc"
+                                android:textColor="@color/gray_400"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switch_notification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            app:thumbTint="@color/white"
+                            app:trackTint="@color/blue_600" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="8dp"
+        android:layout_gravity="bottom">
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/nav_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:layout_marginBottom="3dp">
+                <ImageView
+                    android:id="@+id/nav_home_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/gray_400"
+                    android:contentDescription="Home" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_400" />
+        </LinearLayout>
+
+        <!-- Book -->
+        <LinearLayout
+            android:id="@+id/nav_book"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:layout_marginBottom="3dp">
+                <ImageView
+                    android:id="@+id/nav_book_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_book"
+                    app:tint="@color/gray_400"
+                    android:contentDescription="Book" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_400" />
+        </LinearLayout>
+
+        <!-- Queue (active) -->
+        <LinearLayout
+            android:id="@+id/nav_queue"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:layout_marginBottom="3dp">
+                <ImageView
+                    android:id="@+id/nav_queue_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_queue"
+                    app:tint="@color/gray_400"
+                    android:contentDescription="Queue" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Queue"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_400" />
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout
+            android:id="@+id/nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:layout_marginBottom="3dp">
+                <ImageView
+                    android:id="@+id/nav_profile_icon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_profile"
+                    app:tint="@color/gray_400"
+                    android:contentDescription="Profile" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_400" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

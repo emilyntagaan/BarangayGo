@@ -1,0 +1,2 @@
+-keep class com.example.barangaygo.models.** { *; }
+-keep class com.google.firebase.** { *; }

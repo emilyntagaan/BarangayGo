@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Download Nunito from Google Fonts and place the TTF files here:
+     nunito_regular.ttf
+     nunito_bold.ttf
+     nunito_extrabold.ttf
+     Then update these entries below. -->
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        app:fontStyle="normal"
+        app:fontWeight="400"
+        app:font="@font/nunito_regular" />
+    <font
+        app:fontStyle="normal"
+        app:fontWeight="700"
+        app:font="@font/nunito_bold" />
+    <font
+        app:fontStyle="normal"
+        app:fontWeight="800"
+        app:font="@font/nunito_extrabold" />
+</font-family>

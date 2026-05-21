@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Maroon Palette (primary dark — #5a1102) -->
+    <color name="maroon_50">#fdf0eb</color>
+    <color name="maroon_100">#f5c8b5</color>
+    <color name="maroon_200">#d48070</color>
+    <color name="maroon_400">#a33015</color>
+    <color name="maroon_600">#7a1e05</color>
+    <color name="maroon_800">#5a1102</color>
+    <color name="maroon_900">#3d0c01</color>
+
+    <!-- Cream Palette (primary light — #ffe7c2) -->
+    <color name="cream_50">#fff8f0</color>
+    <color name="cream_100">#ffe7c2</color>
+    <color name="cream_200">#f5d09a</color>
+    <color name="cream_400">#e8b060</color>
+    <color name="cream_600">#c4850a</color>
+    <color name="cream_800">#9a6200</color>
+
+    <!-- Neutral / Gray (warm-toned) -->
+    <color name="gray_50">#FAF7F4</color>
+    <color name="gray_100">#F2EDE8</color>
+    <color name="gray_200">#E0D6CE</color>
+    <color name="gray_400">#A89080</color>
+    <color name="gray_600">#6B5548</color>
+    <color name="gray_800">#2C1810</color>
+
+    <!-- White -->
+    <color name="white">#FFFFFF</color>
+
+    <!-- Status Colors -->
+    <color name="status_success">#2E9B5B</color>
+    <color name="status_success_bg">#E8F8F0</color>
+    <color name="status_warning">#C4850A</color>
+    <color name="status_warning_bg">#FFF3DC</color>
+    <color name="status_danger">#C0392B</color>
+    <color name="status_danger_bg">#FDECEA</color>
+
+    <!-- Accent Colors for Service Icons -->
+    <color name="accent_blue_bg">#fdf0eb</color>
+    <color name="accent_blue">#7a1e05</color>
+    <color name="accent_green_bg">#E8F8F0</color>
+    <color name="accent_green">#2E9B5B</color>
+    <color name="accent_orange_bg">#fff8f0</color>
+    <color name="accent_orange">#c4850a</color>
+    <color name="accent_purple_bg">#F3EEFF</color>
+    <color name="accent_purple">#7C4DCA</color>
+
+    <!-- Dark mode surface -->
+    <color name="dark_surface">#1A0800</color>
+    <color name="dark_card">#2C1204</color>
+    <color name="dark_card_2">#3D1A07</color>
+
+    <!-- Semantic aliases -->
+    <color name="color_primary">@color/maroon_800</color>
+    <color name="color_primary_dark">@color/maroon_900</color>
+    <color name="color_primary_light">@color/maroon_50</color>
+    <color name="color_on_primary">@color/cream_100</color>
+    <color name="color_background">@color/cream_50</color>
+    <color name="color_surface">@color/white</color>
+    <color name="color_on_surface">@color/gray_800</color>
+    <color name="color_on_surface_variant">@color/gray_600</color>
+    <color name="color_outline">@color/gray_200</color>
+
+    <!-- Backward-compat aliases for blue_ references in layouts/Java -->
+    <color name="blue_50">@color/maroon_50</color>
+    <color name="blue_100">@color/maroon_100</color>
+    <color name="blue_200">@color/maroon_200</color>
+    <color name="blue_400">@color/maroon_400</color>
+    <color name="blue_600">@color/maroon_800</color>
+    <color name="blue_800">@color/maroon_900</color>
+    <color name="blue_900">@color/maroon_900</color>
+
+    <!-- Backward-compat aliases for navy_ references -->
+    <color name="navy_50">@color/maroon_50</color>
+    <color name="navy_100">@color/maroon_100</color>
+    <color name="navy_200">@color/maroon_200</color>
+    <color name="navy_400">@color/maroon_400</color>
+    <color name="navy_600">@color/maroon_800</color>
+    <color name="navy_800">@color/maroon_900</color>
+    <color name="navy_900">@color/maroon_900</color>
+
+    <!-- Backward-compat aliases for gold_ references -->
+    <color name="gold_50">@color/cream_50</color>
+    <color name="gold_100">@color/cream_100</color>
+    <color name="gold_200">@color/cream_200</color>
+    <color name="gold_400">@color/cream_400</color>
+    <color name="gold_600">@color/cream_600</color>
+    <color name="gold_800">@color/cream_800</color>
+
+    <!-- Backward-compat aliases for green_ references -->
+    <color name="green_50">@color/status_success_bg</color>
+    <color name="green_100">#C6EDD8</color>
+    <color name="green_200">#92D9B5</color>
+    <color name="green_400">#4ABF7D</color>
+    <color name="green_600">@color/status_success</color>
+    <color name="green_800">#1A6B3C</color>
+</resources>

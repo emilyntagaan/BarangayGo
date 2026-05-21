@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd.exe /c \"cd C:\\\\\\\\Users\\\\\\\\diony\\\\\\\\Downloads\\\\\\\\BarangayGo && gradlew.bat assembleDebug\")",
+      "mcp__ide__getDiagnostics"
+    ]
+  }
+}

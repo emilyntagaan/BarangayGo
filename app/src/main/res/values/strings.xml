@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BarangayGo</string>
+    <string name="app_tagline">Barangay Digital Services</string>
+    <string name="app_description">Your digital gateway to faster, smarter barangay services</string>
+
+    <!-- Auth -->
+    <string name="sign_in">Sign In</string>
+    <string name="register">Register</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="continue_google">Continue with Google</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="sign_in_subtitle">Sign in to your BarangayGo account</string>
+    <string name="create_account">Create your account</string>
+    <string name="register_subtitle">Join BarangayGo to access barangay services</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_book">Book</string>
+    <string name="nav_queue">Queue</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_services">Services</string>
+
+    <!-- Home -->
+    <string name="good_morning">Good morning,</string>
+    <string name="good_afternoon">Good afternoon,</string>
+    <string name="good_evening">Good evening,</string>
+    <string name="active_queue">Active Queue</string>
+    <string name="view_all">View all</string>
+    <string name="see_all">See all</string>
+    <string name="services">Services</string>
+    <string name="announcements">Announcements</string>
+    <string name="tap_to_view">TAP TO VIEW</string>
+    <string name="no_active_queue">No active queue</string>
+    <string name="book_now">Book Now</string>
+
+    <!-- Services -->
+    <string name="barangay_clearance">Barangay Clearance</string>
+    <string name="cert_of_residency">Certificate of Residency</string>
+    <string name="indigency_cert">Indigency Certificate</string>
+    <string name="business_permit">Business Permit</string>
+    <string name="min_wait">min wait</string>
+
+    <!-- Queue -->
+    <string name="queue_number">Queue Number</string>
+    <string name="my_queue_ticket">My Queue Ticket</string>
+    <string name="status">Status</string>
+    <string name="now_serving">Now Serving</string>
+    <string name="ahead_of_you">Ahead of you</string>
+    <string name="est_wait_time">Est. Wait Time</string>
+    <string name="time_slot">Time Slot</string>
+    <string name="resident">Resident</string>
+    <string name="date">Date</string>
+    <string name="queue_progress">Queue Progress</string>
+    <string name="notifications_active">Notifications active</string>
+    <string name="notif_desc">You\'ll be notified when 2 people are ahead</string>
+    <string name="status_waiting">Waiting</string>
+    <string name="status_serving">Now Serving</string>
+    <string name="status_done">Done</string>
+    <string name="status_skipped">Missed</string>
+    <string name="status_no_booking">No Booking</string>
+    <string name="people">people</string>
+    <string name="minutes">minutes</string>
+
+    <!-- Admin -->
+    <string name="admin_panel">Admin Panel</string>
+    <string name="role_staff">Staff</string>
+    <string name="in_queue">In Queue</string>
+    <string name="served">Served</string>
+    <string name="remaining">Remaining</string>
+    <string name="call_next">Call Next</string>
+    <string name="mark_done">Mark Done</string>
+    <string name="announce">Announce</string>
+    <string name="upcoming_queue">Upcoming Queue</string>
+    <string name="waiting">waiting</string>
+    <string name="call">Call</string>
+    <string name="done">Done</string>
+    <string name="skip">Skip</string>
+    <string name="next_arrow">Next →</string>
+    <string name="barangay_name">Brgy. San Isidro</string>
+    <string name="emilyn_email_com">emilyn@email.com</string>
+
+    <!-- Registration -->
+    <string name="register_barangay">Register Barangay</string>
+    <string name="register_resident">Register as Resident</string>
+    <string name="choose_account_type">Create Account</string>
+    <string name="barangay_official">Barangay Official</string>
+    <string name="step_1_of_2">Step 1 of 2</string>
+    <string name="step_2_of_2">Step 2 of 2</string>
+
+    <!-- Announcements -->
+    <string name="post_announcement">Post Announcement</string>
+    <string name="no_announcements">No announcements yet</string>
+    <string name="type_info">INFO</string>
+    <string name="type_warning">WARNING</string>
+    <string name="type_urgent">URGENT</string>
+</resources>

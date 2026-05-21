@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Barangay Hall silhouette — pure white, designed for a dark/red header background.
+    Viewport: 200 × 150  |  Rendered size: 160dp × 120dp
+
+    Fill strategy: fillType="nonZero" (default, API-level safe).
+    Holes are cut by winding them COUNTER-CLOCKWISE while the outer
+    silhouette is wound CLOCKWISE — nonZero rule cancels them out.
+
+    CW  = M x0,y0  H x1  V y1  H x0  Z          (right → down → left → up)
+    CCW = M x0,y0  V y1  H x1  V y0  Z          (down → right → up → left)
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="120dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+
+    <!-- ── Left tree ──────────────────────────────────────────────────────── -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 18,46
+            C 26,46 34,52 34,62
+            C 34,72 26,78 18,78
+            C 10,78 2,72 2,62
+            C 2,52 10,46 18,46 Z
+            M 13,78 H 23 V 102 H 13 Z
+        " />
+
+    <!-- ── Right tree ─────────────────────────────────────────────────────── -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 182,46
+            C 190,46 198,52 198,62
+            C 198,72 190,78 182,78
+            C 174,78 166,72 166,62
+            C 166,52 174,46 182,46 Z
+            M 177,78 H 187 V 102 H 177 Z
+        " />
+
+    <!-- ── Main building silhouette (CLOCKWISE outer) ─────────────────────── -->
+    <!--
+        Outer contour wound CW.
+        Holes wound CCW (V down first, then H right, then V up, then H left).
+
+        Column gaps  (CCW): M x0,y0  V y1  H x1  V y0  H x0  Z
+        Wing windows (CCW): same pattern
+        Pediment circle (CCW): arc reversed
+    -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 30,50
+            H 170
+            V 130
+            H 146
+            V 142
+            H 54
+            V 130
+            H 30
+            Z
+
+            M 72,45
+            H 128
+            V 130
+            H 72
+            Z
+
+            M 72,45
+            L 100,22
+            L 128,45
+            Z
+
+            M 96,8
+            H 104
+            V 22
+            H 96
+            Z
+
+            M 90,5
+            H 110
+            V 8
+            H 90
+            Z
+        " />
+
+    <!--
+        Simpler, more reliable approach: draw each part of the building
+        as separate NON-OVERLAPPING solid white paths. No holes needed.
+        This always works regardless of API level or fill rule.
+    -->
+
+    <!-- ═══ LEFT WING ═══ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 30,50 H 72 V 130 H 30 Z" />
+
+    <!-- ═══ RIGHT WING ═══ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 128,50 H 170 V 130 H 128 Z" />
+
+    <!-- ═══ CENTRE BACK WALL (between column gaps) ═══ -->
+    <!-- Left solid column: x=72–84 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 72,45 H 84 V 130 H 72 Z" />
+    <!-- Centre-left solid column: x=89–96 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 89,45 H 96 V 130 H 89 Z" />
+    <!-- Centre-right solid column: x=104–111 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 104,45 H 111 V 130 H 104 Z" />
+    <!-- Right solid column: x=116–128 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 116,45 H 128 V 130 H 116 Z" />
+
+    <!-- ═══ PEDIMENT (triangle) ═══ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 72,45 L 100,22 L 128,45 Z" />
+
+    <!-- ═══ CUPOLA BODY ═══ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 96,8 H 104 V 22 H 96 Z" />
+
+    <!-- ═══ CUPOLA CAP ═══ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 90,5 H 110 V 8 H 90 Z" />
+
+    <!-- ═══ FRONT STEP (original) ═══ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 54,130 H 146 V 142 H 54 Z" />
+
+    <!-- ═══ WING WINDOWS — background-colour cut-outs ═══
+         These are drawn in the header/background colour to punch
+         holes into the white wings. Change #CC0000 to your bg colour.
+    -->
+    <path
+        android:fillColor="#CC0000"
+        android:pathData="
+            M 37,60  H 62  V 82  H 37  Z
+            M 37,94  H 62  V 116 H 37  Z
+            M 138,60 H 163 V 82  H 138 Z
+            M 138,94 H 163 V 116 H 138 Z
+        " />
+
+    <!-- ═══ COLUMN GAPS — background-colour cut-outs ═══ -->
+    <path
+        android:fillColor="#CC0000"
+        android:pathData="
+            M 84,45  H 89  V 130 H 84  Z
+            M 96,45  H 104 V 130 H 96  Z
+            M 111,45 H 116 V 130 H 111 Z
+        " />
+
+    <!-- ═══ PEDIMENT CIRCLE — background-colour cut-out ═══ -->
+    <path
+        android:fillColor="#CC0000"
+        android:pathData="
+            M 100,30
+            C 103,30 106,33 106,36
+            C 106,39 103,42 100,42
+            C 97,42  94,39  94,36
+            C 94,33  97,30  100,30 Z
+        " />
+
+    <!-- ══════════════════════════════════════════════════════
+         ADDITIONS
+    ══════════════════════════════════════════════════════ -->
+
+    <!-- ── Window muntins (cross bars in bg colour over white windows) ──── -->
+    <path
+        android:fillColor="#CC0000"
+        android:pathData="
+            M 49,60 H 51 V 82 H 49 Z
+            M 37,70 H 62 V 72 H 37 Z
+            M 49,94 H 51 V 116 H 49 Z
+            M 37,104 H 62 V 106 H 37 Z
+            M 150,60 H 152 V 82 H 150 Z
+            M 138,70 H 163 V 72 H 138 Z
+            M 150,94 H 152 V 116 H 150 Z
+            M 138,104 H 163 V 106 H 138 Z
+        " />
+
+    <!-- ── Fan spokes in pediment circle (bg colour over white circle) ──── -->
+    <path
+        android:fillColor="#CC0000"
+        android:pathData="
+            M 99.5,30 H 100.5 V 42 H 99.5 Z
+            M 94,35.5 H 106 V 36.5 H 94 Z
+            M 99,30 L 94,36 L 95,36.8 L 100,31.2 Z
+            M 101,30 L 106,36 L 105,36.8 L 100,31.2 Z
+        " />
+
+    <!-- ── Double door ──────────────────────────────────────────────────── -->
+    <!-- Door opening (bg colour) in the centre gap x=96–104 -->
+    <path
+        android:fillColor="#CC0000"
+        android:pathData="M 92,82 H 108 V 130 H 92 Z" />
+    <!-- Door frame / surround (white) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 92,82 H 108 V 84 H 92 Z
+            M 92,82 H 94 V 130 H 92 Z
+            M 106,82 H 108 V 130 H 106 Z
+            M 99,82 H 101 V 130 H 99 Z
+        " />
+    <!-- Left door raised panels (white) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 94,86 H 99 V 104 H 94 Z
+            M 94,106 H 99 V 128 H 94 Z
+        " />
+    <!-- Right door raised panels (white) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 101,86 H 106 V 104 H 101 Z
+            M 101,106 H 106 V 128 H 101 Z
+        " />
+    <!-- Door knobs (white circles) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 98,110 C 99.1,110 100,110.7 100,111.5 C 100,112.3 99.1,113 98,113 C 96.9,113 96,112.3 96,111.5 C 96,110.7 96.9,110 98,110 Z
+            M 102,110 C 103.1,110 104,110.7 104,111.5 C 104,112.3 103.1,113 102,113 C 100.9,113 100,112.3 100,111.5 C 100,110.7 100.9,110 102,110 Z
+        " />
+
+    <!-- ── Column capitals and bases ──────────────────────────────────────── -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 71,44 H 85 V 47 H 71 Z
+            M 88,44 H 97 V 47 H 88 Z
+            M 103,44 H 112 V 47 H 103 Z
+            M 115,44 H 129 V 47 H 115 Z
+            M 71,126 H 85 V 130 H 71 Z
+            M 88,126 H 97 V 130 H 88 Z
+            M 103,126 H 112 V 130 H 103 Z
+            M 115,126 H 129 V 130 H 115 Z
+        " />
+
+    <!-- ── Extra front steps ───────────────────────────────────────────────── -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="
+            M 46,142 H 154 V 146 H 46 Z
+            M 38,146 H 162 V 150 H 38 Z
+        " />
+
+</vector>

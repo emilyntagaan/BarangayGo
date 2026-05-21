@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Barangay hall image -->
+    <item>
+        <bitmap
+            android:src="@drawable/bg_header_image"
+            android:gravity="center"
+            android:tileMode="disabled" />
+    </item>
+    <!-- Dark maroon overlay for text readability -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#CC6B1A1A" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_announce_info"
+    android:orientation="horizontal"
+    android:padding="14dp"
+    android:gravity="top">
+
+    <!-- Icon -->
+    <LinearLayout
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:background="@drawable/bg_announce_icon_info"
+        android:gravity="center"
+        android:layout_marginEnd="12dp">
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_bell"
+            android:contentDescription="Announcement" />
+    </LinearLayout>
+
+    <!-- Text -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_announce_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Office hours extended"
+            android:textColor="@color/blue_800"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_bold"
+            android:layout_marginBottom="3dp" />
+
+        <TextView
+            android:id="@+id/tv_announce_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting June 3, office will be open until 5:30 PM on weekdays."
+            android:textColor="@color/blue_600"
+            android:textSize="12sp"
+            android:lineSpacingMultiplier="1.4" />
+    </LinearLayout>
+
+</LinearLayout>

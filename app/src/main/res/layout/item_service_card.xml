@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/gray_200"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="14dp">
+
+        <!-- Colored icon circle -->
+        <LinearLayout
+            android:id="@+id/iv_service_icon_bg"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:layout_marginEnd="14dp">
+            <ImageView
+                android:id="@+id/iv_service_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Service Icon" />
+        </LinearLayout>
+
+        <!-- Name + wait time -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_service_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service Name"
+                android:textColor="@color/gray_800"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_bold" />
+
+            <TextView
+                android:id="@+id/tv_service_wait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="~20 min wait"
+                android:textColor="@color/gray_400"
+                android:textSize="11sp"
+                android:layout_marginTop="3dp" />
+
+        </LinearLayout>
+
+        <!-- Chevron -->
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/ic_back"
+            android:rotation="180"
+            android:alpha="0.25"
+            android:layout_marginStart="8dp"
+            android:contentDescription="Open" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

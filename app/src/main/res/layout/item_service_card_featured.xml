@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="18dp">
+
+        <!-- Colored icon container -->
+        <LinearLayout
+            android:id="@+id/iv_service_icon_bg"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:layout_marginEnd="16dp">
+            <ImageView
+                android:id="@+id/iv_service_icon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="Service Icon" />
+        </LinearLayout>
+
+        <!-- Text block -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_featured_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MOST BOOKED"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:textColor="@color/accent_blue"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_service_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service Name"
+                android:textColor="@color/gray_800"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tv_service_wait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="~20 min wait"
+                android:textColor="@color/gray_400"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Chevron -->
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_back"
+            android:rotation="180"
+            android:alpha="0.3"
+            android:layout_marginStart="8dp"
+            android:contentDescription="Open" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

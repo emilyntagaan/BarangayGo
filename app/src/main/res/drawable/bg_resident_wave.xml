@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Soft wave/scallop at bottom of resident header for friendly feel -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners
+        android:bottomLeftRadius="28dp"
+        android:bottomRightRadius="28dp"
+        android:topLeftRadius="0dp"
+        android:topRightRadius="0dp" />
+    <gradient
+        android:angle="135"
+        android:startColor="#7A1E05"
+        android:centerColor="#A33015"
+        android:endColor="#C4650A"
+        android:type="linear" />
+</shape>

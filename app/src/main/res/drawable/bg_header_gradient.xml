@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Resident header: warm maroon-to-amber — welcoming, community, approachable -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#7A1E05"
+        android:centerColor="#A33015"
+        android:endColor="#C4650A"
+        android:type="linear" />
+</shape>

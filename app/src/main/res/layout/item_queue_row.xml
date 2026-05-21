@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="12dp"
+    android:paddingStart="16dp">
+
+    <!-- Queue number box -->
+    <LinearLayout
+        android:id="@+id/queue_num_bg"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_queue_num"
+        android:gravity="center"
+        android:layout_marginEnd="12dp">
+        <TextView
+            android:id="@+id/tv_queue_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="40"
+            android:textColor="@color/blue_600"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_extrabold" />
+    </LinearLayout>
+
+    <!-- Name and service -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_resident_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maria Santos"
+            android:textColor="@color/gray_800"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_bold" />
+        <TextView
+            android:id="@+id/tv_service_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Barangay Clearance"
+            android:textColor="@color/gray_400"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Action button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_queue_action"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/call"
+        android:textColor="@color/blue_600"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:strokeColor="@color/blue_200"
+        app:strokeWidth="1.5dp"
+        app:cornerRadius="8dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"/>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.BarangayGo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/blue_400</item>
+        <item name="colorPrimaryVariant">@color/blue_600</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/blue_200</item>
+        <item name="colorOnSecondary">@color/gray_800</item>
+        <item name="android:colorBackground">@color/dark_surface</item>
+        <item name="colorSurface">@color/dark_card</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:statusBarColor">@color/dark_card</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

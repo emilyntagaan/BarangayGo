@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Night mode overrides: keep app colors light/warm — this app does not support dark mode -->
+<resources>
+    <color name="cream_50">#fff8f0</color>
+    <color name="gray_50">#FAF7F4</color>
+    <color name="gray_100">#F2EDE8</color>
+    <color name="gray_200">#E0D6CE</color>
+    <color name="gray_800">#2C1810</color>
+    <color name="white">#FFFFFF</color>
+</resources>

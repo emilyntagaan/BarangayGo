@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/gray_50">
+    <!--  RESIDENT HEADER - Warm Community Style  -->
+    <RelativeLayout android:id="@+id/header_container" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_resident_wave" android:paddingStart="20dp" android:paddingEnd="20dp" android:paddingTop="18dp" android:paddingBottom="32dp">
+        <!--  Large soft circle top-right decoration  -->
+        <View android:layout_width="160dp" android:layout_height="160dp" android:background="@drawable/bg_circle_decoration" android:layout_alignParentEnd="true" android:layout_alignParentTop="true" android:layout_marginEnd="-40dp" android:layout_marginTop="-40dp"/>
+        <!--  Small circle bottom-left decoration  -->
+        <View android:layout_width="60dp" android:layout_height="60dp" android:background="@drawable/bg_circle_decoration" android:layout_alignParentStart="true" android:layout_alignBottom="@id/card_active_queue" android:layout_marginStart="0dp" android:layout_marginBottom="8dp"/>
+        <!--  Barangay hall silhouette centered  -->
+        <ImageView android:layout_width="180dp" android:layout_height="130dp" android:src="@drawable/ic_barangay_silhouette" android:scaleType="fitCenter" android:alpha="0.15" android:layout_centerHorizontal="true" android:layout_alignBottom="@id/card_active_queue" android:contentDescription="Barangay hall"/>
+        <!--  Top bar: greeting + notification  -->
+        <LinearLayout android:id="@+id/topbar" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:id="@+id/tv_greeting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Good morning," android:textColor="#CCFFFFFF" android:textSize="13sp"/>
+                <TextView android:id="@+id/tv_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="User" android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your barangay, at your fingertips." android:textColor="#80FFFFFF" android:textSize="10sp" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <!--  Notification button  -->
+            <LinearLayout android:id="@+id/btn_notification" android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/bg_resident_queue_card" android:gravity="center" android:orientation="vertical">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_bell" android:contentDescription="Notifications"/>
+            </LinearLayout>
+        </LinearLayout>
+        <!--  Active Queue Card - warm glassmorphic  -->
+        <LinearLayout android:id="@+id/card_active_queue" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_resident_queue_card" android:padding="16dp" android:layout_below="@id/topbar">
+            <!--  NO QUEUE state  -->
+            <LinearLayout android:id="@+id/layout_no_queue" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:visibility="visible">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MY QUEUE STATUS" android:textColor="#99FFFFFF" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.10" android:layout_marginBottom="5dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No active booking yet" android:textColor="@color/white" android:textSize="14sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tap Book below to reserve a slot" android:textColor="#AAFFFFFF" android:textSize="11sp" android:layout_marginTop="3dp"/>
+                </LinearLayout>
+                <ImageView android:layout_width="26dp" android:layout_height="26dp" android:src="@drawable/ic_book" android:alpha="0.7"/>
+            </LinearLayout>
+            <!--  closes layout_no_queue  -->
+            <!--  HAS QUEUE state  -->
+            <LinearLayout android:id="@+id/layout_has_queue" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MY QUEUE STATUS" android:textColor="#99FFFFFF" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.10" android:layout_weight="1"/>
+                    <TextView android:id="@+id/tv_queue_status_badge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WAITING" android:textSize="10sp" android:textStyle="bold" android:paddingHorizontal="8dp" android:paddingVertical="3dp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:id="@+id/tv_queue_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="—" android:textColor="@color/white" android:textSize="28sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tv_queue_service" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:textColor="#CCFFFFFF" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tv_ahead_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:textColor="#AAFFFFFF" android:textSize="11sp" android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--  NOW SERVING message  -->
+                <LinearLayout android:id="@+id/layout_serving_msg" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp" android:visibility="gone">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Please proceed to the window now." android:textColor="#CCFFFFFF" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!--  closes layout_has_queue  -->
+        </LinearLayout>
+        <!--  closes card_active_queue  -->
+    </RelativeLayout>
+    <!--  closes header_container  -->
+    <!--  Scrollable content  -->
+    <androidx.core.widget.NestedScrollView android:id="@+id/nested_scroll_view" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:background="@color/gray_50">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="16dp" android:paddingBottom="16dp">
+            <!--  Announcements Section Header  -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="18dp" android:paddingBottom="10dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Announcements" android:textColor="@color/gray_800" android:textSize="15sp" android:textStyle="bold"/>
+                <TextView android:id="@+id/tv_see_all" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="View all" android:textColor="@color/blue_600" android:textSize="12sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <!--  Latest single announcement  -->
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_home_announcements" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" android:overScrollMode="never" android:layout_marginBottom="4dp"/>
+            <TextView android:id="@+id/tv_no_announcements" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="No announcements yet" android:textColor="@color/gray_400" android:textSize="12sp" android:gravity="center" android:paddingVertical="12dp" android:visibility="gone"/>
+            <!--  Services Section Header  -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:paddingTop="18dp" android:paddingBottom="10dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Services" android:textColor="@color/gray_800" android:textSize="15sp" android:textStyle="bold"/>
+                <TextView android:id="@+id/tv_view_all_services" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="View all" android:textColor="@color/blue_600" android:textSize="12sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <!--  Services list — populated from Firestore in real time  -->
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_services" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" android:overScrollMode="never" android:layout_marginBottom="16dp"/>
+            <!--  Empty / loading state for services  -->
+            <TextView android:id="@+id/tv_no_services" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Loading services…" android:textColor="@color/gray_400" android:textSize="12sp" android:gravity="center" android:paddingVertical="16dp" android:visibility="gone"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <!--  Book tab: services list with descriptions, hidden by default  -->
+    <androidx.core.widget.NestedScrollView android:id="@+id/view_book_container" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:visibility="gone" android:background="@color/gray_50">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="16dp" android:paddingBottom="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Browse Services" android:textColor="@color/gray_800" android:textSize="15sp" android:textStyle="bold" android:paddingTop="18dp" android:paddingBottom="10dp"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_book_services" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false" android:overScrollMode="never"/>
+            <TextView android:id="@+id/tv_book_no_services" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="No services available" android:textColor="@color/gray_400" android:textSize="12sp" android:gravity="center" android:paddingVertical="16dp" android:visibility="gone"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <!--  Bottom Navigation - fixed at bottom  -->
+    <LinearLayout android:id="@+id/bottom_nav_container" android:layout_width="match_parent" android:layout_height="64dp" android:background="@color/white" android:orientation="horizontal" android:paddingTop="8dp" android:paddingBottom="8dp" android:elevation="8dp">
+        <LinearLayout android:id="@+id/nav_home" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+            <LinearLayout android:id="@+id/nav_home_icon_bg" android:layout_width="32dp" android:layout_height="32dp" android:gravity="center" android:background="@drawable/bg_nav_active" android:layout_marginBottom="3dp">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_home" app:tint="@color/blue_600" android:contentDescription="Home"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textSize="10sp" android:textStyle="bold" android:textColor="@color/blue_600"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/nav_book" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+            <LinearLayout android:layout_width="32dp" android:layout_height="32dp" android:gravity="center" android:layout_marginBottom="3dp">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_book" app:tint="@color/gray_400" android:contentDescription="Book"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Book" android:textSize="10sp" android:textStyle="bold" android:textColor="@color/gray_400"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/nav_queue" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+            <LinearLayout android:layout_width="32dp" android:layout_height="32dp" android:gravity="center" android:layout_marginBottom="3dp">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_queue" app:tint="@color/gray_400" android:contentDescription="Queue"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Queue" android:textSize="10sp" android:textStyle="bold" android:textColor="@color/gray_400"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/nav_profile" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+            <LinearLayout android:layout_width="32dp" android:layout_height="32dp" android:gravity="center" android:layout_marginBottom="3dp">
+                <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_profile" app:tint="@color/gray_400" android:contentDescription="Profile"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profile" android:textSize="10sp" android:textStyle="bold" android:textColor="@color/gray_400"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

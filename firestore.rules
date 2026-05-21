@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthed() { return request.auth != null; }
+    function uid()      { return request.auth.uid; }
+
+    function userDoc() {
+      return get(/databases/$(database)/documents/users/$(uid())).data;
+    }
+    function role()       { return userDoc().role; }
+    function myBarangay() { return userDoc().barangayId; }
+
+    // ── Users ──────────────────────────────────────────────────────────────
+    match /users/{userId} {
+      allow read, write: if isAuthed() && uid() == userId;
+    }
+
+    // ── Barangays ──────────────────────────────────────────────────────────
+    match /barangays/{barangayId} {
+      allow read: if isAuthed();
+      allow write: if isAuthed() && role() == 'admin' && myBarangay() == barangayId;
+    }
+
+    // ── Services ───────────────────────────────────────────────────────────
+    match /services/{serviceId} {
+      allow read: if isAuthed();
+      allow write: if isAuthed() && role() == 'admin';
+    }
+
+    // ── Announcements ──────────────────────────────────────────────────────
+    match /announcements/{id} {
+      allow read: if isAuthed();
+      allow write: if isAuthed() && role() == 'admin';
+    }
+
+    // ── Queue Slots ────────────────────────────────────────────────────────
+    match /queue_slots/{slotId} {
+      allow read: if isAuthed();
+      // Admins manage their own barangay's slots
+      allow create, delete: if isAuthed() && role() == 'admin'
+        && request.resource.data.barangayId == myBarangay();
+      allow update: if isAuthed() && (
+        // Admin can update any field on their barangay's slot
+        (role() == 'admin' && resource.data.barangayId == myBarangay())
+        ||
+        // Resident can only increment currentCount (booking transaction)
+        (role() == 'resident'
+          && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['currentCount'])
+          && request.resource.data.currentCount <= resource.data.maxCapacity)
+      );
+    }
+
+    // ── Bookings ───────────────────────────────────────────────────────────
+    match /bookings/{bookingId} {
+      // Resident reads their own bookings
+      allow read: if isAuthed() && resource.data.userId == uid();
+
+      // Admin reads bookings for their barangay only
+      // (AdminActivity now filters by barangayId server-side so this is consistent)
+      allow read: if isAuthed() && role() == 'admin'
+        && resource.data.barangayId == myBarangay();
+
+      // Resident creates their own booking
+      allow create: if isAuthed() && role() == 'resident'
+        && request.resource.data.userId == uid()
+        && request.resource.data.barangayId is string;
+
+      // Admin updates status (Next / Skip / Mark Done) for their barangay
+      allow update: if isAuthed() && role() == 'admin'
+        && resource.data.barangayId == myBarangay();
+    }
+  }
+}

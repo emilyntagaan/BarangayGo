@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- People / Social Services / Indigent -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Front person head -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/gray_400"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M12,8 C12,6.34 10.66,5 9,5 C7.34,5 6,6.34 6,8 C6,9.66 7.34,11 9,11 C10.66,11 12,9.66 12,8 Z" />
+
+    <!-- Front person body -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/gray_400"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M2,21 C2,17.69 5.13,15 9,15 C10.06,15 11.06,15.2 11.97,15.56" />
+
+    <!-- Back person head -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/gray_400"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M19,8 C19,6.34 17.66,5 16,5 C14.34,5 13,6.34 13,8" />
+
+    <!-- Back person body -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/gray_400"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M13,21 C13,17.69 16.13,15 20,15 C21.1,15 22,15.22 22,15.22 L22,21" />
+
+</vector>
